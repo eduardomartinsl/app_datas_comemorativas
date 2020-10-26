@@ -7,6 +7,7 @@ import HomeScreen from './modules/HomeScreen'
 const stack = createStackNavigator()
 
 function App() {
+
   return (
     <NavigationContainer>
       <stack.Navigator>
