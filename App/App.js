@@ -10,7 +10,10 @@ function App() {
   return (
     <NavigationContainer>
       <stack.Navigator>
-        <stack.Screen name='home' component={HomeScreen} options={{ title: "tela principal" }} />
+        <stack.Screen
+          name='home'
+          component={HomeScreen}
+          options={{ title: "tela principal" }} />
       </stack.Navigator>
     </NavigationContainer>
   )

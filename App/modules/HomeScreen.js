@@ -12,20 +12,8 @@ export default function HomeScreen() {
   return (
     <Container>
       <Col>
-        <Row>
-          <Text>Home screen eae man </Text>
-          <Text>Home screen eae man </Text>
-          <Text>Home screen eae man </Text>
-        </Row>
-        <Text>Home screen eae man</Text>
-        <Text>Home screen eae man</Text>
-        <Text>Home screen eae man</Text>
-        <Button title="Titulo do botão" onPress={buscarDatasComemorativas} />
+        <Button title="Buscar datas" onPress={buscarDatasComemorativas} />
       </Col>
     </Container>
   )
-}
-
-function alertao(){
-  return alert("bora la time")
 }
