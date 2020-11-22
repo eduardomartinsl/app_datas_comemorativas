@@ -1,25 +1,39 @@
 import { useCallback, useState } from 'react'
+import FormataStringData from '../helpers/FormataStringData'
 import { http } from '../resources/http'
 import URLS from '../resources/urls'
 
-export default function useCarregaDatas(ano, estado, cidade, callback) {
-  const [loading, setLoading] = useState(false)
+export default function useCarregaDatas(ano, estado, cidade) {
 
-  const carregaDatas = useCallback(
+  const[calendario, setCalendario] = useState({})
+  const[isLoading, setIsLoading] = useState(false)
+
+  const loadHollidays = useCallback(
     async () => {
-      setLoading(true)
+      setIsLoading(true)
       const url = URLS.DATAS_COMEMORATIVAS(ano, estado, cidade)
       try {
         const { data } = await http.get(url)
-        callback(data)
+
+        let retorno = {}
+
+        for(const item of data){
+          retorno[FormataStringData(item.date)] = {
+            "selected": true,
+            "marked": true,
+            "selectedColor": "green"
+          };
+        }
+
+        setCalendario(retorno)
       } catch (e) {
 
       } finally {
-        setLoading(false)
+        setIsLoading(false)
       }
     },
-    [callback]
+    []
   )
 
-  return [carregaDatas, loading]
+  return {calendario, isLoading, loadHollidays}
 }

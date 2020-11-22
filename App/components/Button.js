@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { colors } from '../resources/colors'
 
-export default function Button({ title, onPress }) {
+export default function Button({ title, onPress}) {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={{ color: colors.textOnPrimary }}>{title}</Text>
